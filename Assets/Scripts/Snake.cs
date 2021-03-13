@@ -8,6 +8,8 @@ public class Snake : MonoBehaviour
     private float m_RotationSpeed = 200f;
     private float m_Horizontal = 0f;
     public string InputAxis = "Horizontal";
+    [SerializeField]
+    GameManager m_GameManager;
     // Update is called once per frame
     void Update()
     {
@@ -22,7 +24,11 @@ public class Snake : MonoBehaviour
 
     void OnTriggerEnter2D (Collider2D collider)
     {
-        Debug.Log("Tested");
+        if(collider.tag == "kills")
+        {
+            m_GameManager.EndGame();
+        }    
+        
     }
         
 }
