@@ -26,6 +26,8 @@ public class Snake : MonoBehaviour
     {
         if(collider.tag == "kills")
         {
+            m_Speed = 0f;
+            m_RotationSpeed = 0f;
             m_GameManager.EndGame();
         }    
         
