@@ -11,8 +11,8 @@ public class GameManager : MonoBehaviour
 
     IEnumerator PlayEndGameAnimation()
     {
-        Debug.Log("GameOver");
         yield return new WaitForSeconds(1f);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
+
 }

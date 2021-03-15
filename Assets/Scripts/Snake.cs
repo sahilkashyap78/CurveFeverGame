@@ -10,16 +10,12 @@ public class Snake : MonoBehaviour
     public string InputAxis = "Horizontal";
     [SerializeField]
     GameManager m_GameManager;
-    // Update is called once per frame
-    void Update()
-    {
-        m_Horizontal = Input.GetAxisRaw(InputAxis);
-    }
-
+    
     void FixedUpdate()
     {
         transform.Translate(Vector2.up * m_Speed * Time.fixedDeltaTime, Space.Self);
         transform.Rotate(Vector3.forward * m_Horizontal* m_RotationSpeed * Time.fixedDeltaTime);
+        m_Horizontal = 0f;
     }
 
     void OnTriggerEnter2D (Collider2D collider)
@@ -32,5 +28,15 @@ public class Snake : MonoBehaviour
         }    
         
     }
-        
+
+    public void LeftButtton()
+    {
+        m_Horizontal = -1f;
+    }
+
+    public void RightButtton()
+    {
+        m_Horizontal = 1f;
+    }
+
 }
